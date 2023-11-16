@@ -1,4 +1,4 @@
-package com.cosinami.grizzlysurvival;
+package com.cosinami.grizzlysurvival.core;
 
 /**
  * TODO: Placeholder text.
