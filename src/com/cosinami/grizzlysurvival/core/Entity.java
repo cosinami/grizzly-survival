@@ -1,6 +1,6 @@
-package com.cosinami.grizzlysurvival.entities;
+package com.cosinami.grizzlysurvival.core;
 
-import com.cosinami.grizzlysurvival.components.Component;
+import com.cosinami.grizzlysurvival.core.Component;
 
 /**
  * TODO: Placeholder text.

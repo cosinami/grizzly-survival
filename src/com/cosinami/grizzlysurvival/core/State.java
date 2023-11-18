@@ -1,8 +1,5 @@
 package com.cosinami.grizzlysurvival.core;
 
-import com.cosinami.grizzlysurvival.components.Component;
-import com.cosinami.grizzlysurvival.entities.Entity;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -13,6 +10,23 @@ import java.util.Random;
 public class State {
     /** TODO: Placeholder text. */
     private HashMap<Long, Entity> entities;
+
+    /**
+     * TODO: Placeholder text.
+     * @param classType
+     * @return
+     */
+    public ArrayList<Entity> getEntitiesByClass(Class classType) {
+        ArrayList<Entity> filtered = new ArrayList<>();
+        String className = classType.getPackageName();
+
+        entities.forEach((id, entity) -> {
+            if (entity.getClass().getPackageName() == className)
+                filtered.add(entity);
+        });
+
+        return filtered;
+    }
 
     /**
      * TODO: Placeholder text.

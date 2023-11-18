@@ -1,8 +1,4 @@
-package com.cosinami.grizzlysurvival.gamemodes;
-
-import com.cosinami.grizzlysurvival.core.Buffer;
-import com.cosinami.grizzlysurvival.core.State;
-import com.cosinami.grizzlysurvival.desires.Desire;
+package com.cosinami.grizzlysurvival.core;
 
 import java.util.ArrayList;
 
@@ -15,6 +11,9 @@ public interface Gamemode {
 
     /** TODO: Placeholder text. */
     void process(ArrayList<Desire> desires);
+
+    /** TODO: Placeholder text. */
+    boolean busy();
 
     /** TODO: Placeholder text. */
     Buffer drawBuffer();

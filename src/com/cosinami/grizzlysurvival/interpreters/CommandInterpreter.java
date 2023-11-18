@@ -1,17 +1,20 @@
 package com.cosinami.grizzlysurvival.interpreters;
 
 import com.cosinami.grizzlysurvival.core.Buffer;
-import com.cosinami.grizzlysurvival.desires.Desire;
+import com.cosinami.grizzlysurvival.core.Desire;
+import com.cosinami.grizzlysurvival.core.Interpreter;
 
 import java.util.ArrayList;
 
 /**
- * TODO: Placeholder text.
+ * The implementation for the CLI frontend of Grizzly Survival.
+ * This interpreter should only provide TextDesire when being polled
+ * for input.
  */
 public class CommandInterpreter implements Interpreter {
     @Override
     public boolean heartbeat() {
-        return true;
+        return false;
     }
 
     @Override

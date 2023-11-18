@@ -1,7 +1,7 @@
-package com.cosinami.grizzlysurvival.interpreters;
+package com.cosinami.grizzlysurvival.core;
 
 import com.cosinami.grizzlysurvival.core.Buffer;
-import com.cosinami.grizzlysurvival.desires.Desire;
+import com.cosinami.grizzlysurvival.core.Desire;
 
 import java.util.ArrayList;
 
@@ -22,7 +22,12 @@ public interface Interpreter {
      */
     boolean heartbeat();
 
-    /** TODO: Placeholder text. */
+    /**
+     * Notifies the interpreter to redraw its frontend with
+     * new content provided in the buffer.
+     * The buffer represents the current version of the "world",
+     * according to the internal State.
+     */
     void render(Buffer buffer);
 
     /** TODO: Placeholder text. */

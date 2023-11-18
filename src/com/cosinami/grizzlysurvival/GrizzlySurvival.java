@@ -2,10 +2,10 @@ package com.cosinami.grizzlysurvival;
 
 import com.cosinami.grizzlysurvival.core.Project;
 import com.cosinami.grizzlysurvival.core.State;
-import com.cosinami.grizzlysurvival.gamemodes.Gamemode;
+import com.cosinami.grizzlysurvival.core.Gamemode;
 import com.cosinami.grizzlysurvival.gamemodes.Init;
 import com.cosinami.grizzlysurvival.interpreters.CommandInterpreter;
-import com.cosinami.grizzlysurvival.interpreters.Interpreter;
+import com.cosinami.grizzlysurvival.core.Interpreter;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
@@ -23,7 +23,7 @@ public class GrizzlySurvival {
      * @param args Command-line arguments provided by the shell.
      */
     public static void main(String[] args) throws IOException {
-        // TODO: Explain.
+        // TODO: Placeholder text.
         Yaml yaml = new Yaml(new Constructor(Project.class, new LoaderOptions()));
         Project project = yaml.load(Files.readString(Paths.get("project.yaml")));
 
@@ -38,15 +38,23 @@ public class GrizzlySurvival {
         new GrizzlySurvival();
     }
 
-    /** TODO: Placeholder text. */
+    /** A frontend abstraction responsible for input and rendering. */
     Interpreter interpreter;
-    /** TODO: Placeholder text. */
+
+    /**
+     * A structure for managing all game memory.
+     * State is always modified and read by gamemodes. Creating classes
+     * and functions that break this paradigm may lead to undefined
+     * behavior.
+     */
     State state;
-    /** TODO: Placeholder text. */
+
+    /** The current "gamemode" of this instance. */
     Gamemode gamemode;
 
     /**
-     * TODO: Placeholder text.
+     * The entry point for Grizzly Survival.
+     * A new game is begun upon the instancing of this class.
      */
     public GrizzlySurvival() {
         // Temporary default interpreter. Receives input from stdin.
@@ -64,7 +72,8 @@ public class GrizzlySurvival {
             interpreter.render(gamemode.drawBuffer());
             // Step 3. Process input received by the user.
             gamemode.process(interpreter.poll());
-            // TODO: Step 4. Swap gamemode if necessary.
+            // Step 4. Swap gamemode if necessary.
+            if (!gamemode.busy()) continue; // TODO: Implement.
         } while (interpreter.heartbeat());
     }
 }
